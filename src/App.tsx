@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./index.css"
 
 function App() {
 
   return (
     <>
-      <h1>Cripto App</h1>
+      <div className="container">
+        <h1 className="app-title">
+          Cotizador de <span>Criptomonedas</span>
+        </h1>
+
+        {/* Contenido */}
+        <div className="content">
+          
+        </div>
+      </div>
     </>
   )
 }
