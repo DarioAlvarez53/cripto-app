@@ -19,3 +19,13 @@ export const PairSchema = z.object({
     currency: z.string(),
     cryptocurrency: z.string()
 })
+
+//validando la consulta de la cotizacion y guardando solo lo necesario
+export const CryptoPriceSchema = z.object({
+    IMAGEURL: z.string(),
+    PRICE: z.string(),
+    HIGHDAY: z.string(),
+    LOWDAY: z.string(),
+    CHANGEPCT24HOUR: z.string(),
+    LASTUPDATE: z.string()
+})
