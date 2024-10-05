@@ -1,9 +1,23 @@
 import { useCryptoStore } from "../store"
 import { currencies } from "../data"
+import { ChangeEvent, useState } from "react"
+import { Pair } from "../types"
 
 export default function CryptoSearchForm() {
 
     const cryptoCurrencies = useCryptoStore((state) => state.criptoCurrencies)
+    //State para moneda y cryptoMoneda a cotizar
+    const [pair, setPair] = useState<Pair>({
+        currency: '',
+        cryptocurrency: ''
+    })
+
+    const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setPair({
+            ...pair,
+            [e.target.name]: e.target.value
+        })
+    }
 
     return (
         <form
@@ -15,6 +29,7 @@ export default function CryptoSearchForm() {
                 <select 
                     name="currency" 
                     id="currency"
+                    onChange={handleChange}
                 >
                     <option value="">-- Seleccione --</option>
                     {currencies.map( currency => (
@@ -28,6 +43,7 @@ export default function CryptoSearchForm() {
                 <select 
                     name="cryptocurrency" 
                     id="cryptocurrency"
+                    onChange={handleChange}
                 >
                     <option value="">-- Seleccione --</option>
                     { cryptoCurrencies.map(crypto => (
